@@ -39,6 +39,11 @@ websocketServer.on('connection', (webSocketClient) => {
     //when a message is received
     webSocketClient.on('message', (message) => {
 
+        if (message == "ping") {
+            webSocketClient.send("pong");
+            return;
+        }
+
         console.log("message: " + message);
 
         let received_message = JSON.parse(message).message;

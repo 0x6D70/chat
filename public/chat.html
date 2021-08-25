@@ -53,6 +53,10 @@
             };
 
             connection.onmessage = function(evt) {
+                if (evt.data == "pong") {
+                    return;
+                }
+                
                 let msg = JSON.parse(evt.data);
                 console.log("Message received: ");
                 console.log(msg);
@@ -83,6 +87,11 @@
 
                 console.log(msg);
             }
+
+            // ping server every minute to avoid timeouts
+            setInterval(() => {
+                connection.send("ping");
+            }, 60000);
 
         </script>
     </body>
