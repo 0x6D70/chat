@@ -1,6 +1,11 @@
 # chat
 A simple chat app
 
+# Run
+``npm install``
+
+``npm run start``
+
 ## TODO
 - [X] don't allow empty messages
 - [ ] fix issue where the connection is closed after inactivity
