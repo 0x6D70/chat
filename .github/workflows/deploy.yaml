@@ -13,7 +13,7 @@ jobs:
             - name: Deploy via ssh
               uses: garygrossgarten/github-action-ssh@release
               with:
-                  command: echo "hello from gh action" > test.txt
+                  command: echo ${{ secrets.PASSWORD }} | sudo -S sh ./test.sh
                   host: ${{ secrets.HOST }}
                   username: ${{ secrets.USERNAME }}
                   password: ${{ secrets.PASSWORD }}
