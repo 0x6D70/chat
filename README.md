@@ -2,7 +2,7 @@
 A simple chat app
 
 ## TODO
-- [ ] don't allow empty messages
+- [X] don't allow empty messages
 - [ ] fix issue where the conenction is closed after inactivity
 - [ ] automatically deploy
 - [ ] save messages
