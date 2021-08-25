@@ -30,7 +30,7 @@
                 location.href = "/index.html";
             }
 
-            let connection = new WebSocket((location.protocol === 'https:' ? "wss://" : "ws://") + document.location.hostname + ":8080", "json");
+            let connection = new WebSocket((location.protocol === 'https:' ? "wss://" : "ws://") + document.location.hostname + (location.port != "" ? ":" + location.port : ""), "json");
 
             connection.onerror = function(event) {
                 console.error("WebSocket error observed:", event);
