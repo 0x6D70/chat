@@ -11,6 +11,4 @@ cd chat/
 
 npm install
 
-export PORT=80
-
-nohup sudo node server.js > server.log 2>&1 </dev/null & disown
+PORT=80 nohup sudo node server.js > server.log 2>&1 </dev/null & disown
