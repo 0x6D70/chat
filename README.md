@@ -8,8 +8,8 @@ A simple chat app
 
 ## TODO
 - [X] don't allow empty messages
-- [ ] fix issue where the connection is closed after inactivity
-- [ ] automatically deploy
+- [X] fix issue where the connection is closed after inactivity
+- [X] automatically deploy
 - [ ] save messages
 - [ ] improve frontend ui
 - [ ] send on enter / shift+enter adds new line
