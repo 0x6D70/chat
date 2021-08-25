@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Chat-Programm</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="index.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    </head>
+    <body>
+        <label for="messageBox">Name: </label>
+        <input type="text" id="Name" name="message"/>
+        <button onclick="controllName()" type="button">Weiter zum Chat</button>
+
+        <script>
+            let name = localStorage.getItem("username");
+
+            if (name !== null) {
+                location.href = "/chat.html";
+            }
+
+            function controllName(){
+                if (document.getElementById("Name").value.length > 0){
+                    localStorage.setItem("username", document.getElementById("Name").value);
+
+                    location.href = "/chat.html";               
+                }
+            }
+        </script>
+    </body>
+</html>

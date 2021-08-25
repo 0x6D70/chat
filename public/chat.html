@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Chat-Programm</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="index.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    </head>
+    <body>
+
+        <h1>Messages:</h1>
+        <br>
+
+        <table id="Messages">
+            
+        </table>
+
+
+        <div id="sendMessageDiv">
+            <input type="text" id="messageBox" name="message"/>
+
+            <button onclick="sendMessage(document.getElementById('messageBox').value)" type="button" name="sendButton">Send Message</button>
+        </div>
+
+
+        <script>
+            let name = localStorage.getItem("username");
+
+            if (name === null){
+                location.href = "/index.html";
+            }
+
+            let connection = new WebSocket((location.protocol === 'https:' ? "wss://" : "ws://") + document.location.hostname + ":8080", "json");
+
+            connection.onerror = function(event) {
+                console.error("WebSocket error observed:", event);
+            };
+
+            connection.onclose = function(event) {
+                console.error("WebSocket close observed:", event);
+            };
+
+            console.log("created websocket");
+
+            connection.onopen = function(evt) {
+                console.log("onopen");
+
+                let msg = {
+                    message: name + " ist jetzt online" 
+                };
+
+                connection.send(JSON.stringify(msg));
+            };
+
+            connection.onmessage = function(evt) {
+                let msg = JSON.parse(evt.data);
+                console.log("Message received: ");
+                console.log(msg);
+                console.log(evt.data);
+
+                let table = document.getElementById("Messages");
+
+                msg.messages.forEach(element => {
+                    console.log("received: " + element);
+
+                    let row = table.insertRow();
+                    let cell = row.insertCell(0);
+                    cell.innerHTML = element;
+                });                
+            };
+
+            function sendMessage(message){
+                document.getElementById('messageBox').value = "";
+
+                let msg = {
+                    message: name + ": " + message 
+                };
+
+                connection.send(JSON.stringify(msg));
+
+                console.log(msg);
+            }
+
+        </script>
+    </body>
+</html>
