@@ -10,7 +10,7 @@ A simple chat app
 - [X] don't allow empty messages
 - [X] fix issue where the connection is closed after inactivity
 - [X] automatically deploy
-- [ ] save messages
+- [X] save messages
 - [ ] improve frontend ui
 - [ ] send on enter / shift+enter adds new line
 - [ ] add support for emojis, links and images
