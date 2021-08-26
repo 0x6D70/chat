@@ -16,5 +16,8 @@ A simple chat app
 - [ ] add support for emojis, links and images
 - [ ] add support for code blocks
 - [ ] add support for github webhooks
+- [ ] add user accounts
+- [ ] add channels
+- [ ] add server
 - [ ] create a voice chat
 - [ ] add support for camera and display sharing
