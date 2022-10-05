@@ -12,4 +12,4 @@ cd chat/
 npm install
 npm install -g forever
 
-PORT=80 nohup sudo -E forever server.js > server.log 2>&1 </dev/null & disown
+PORT=8080 nohup sudo -E forever server.js > server.log 2>&1 </dev/null & disown
