@@ -11,7 +11,7 @@ A simple chat app
 - [X] fix issue where the connection is closed after inactivity
 - [X] automatically deploy
 - [X] save messages
-- [ ] improve frontend ui
+- [X] improve frontend ui
 - [ ] send on enter / shift+enter adds new line
 - [ ] add support for emojis, links and images
 - [ ] add support for code blocks
